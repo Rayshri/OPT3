@@ -1,7 +1,7 @@
 class Bestelling {
     private String naam;
     private double prijs;
-    private Integer hoeveelheid;
+    private Integer hoeveelheid = 0;
     private double totaal;
 
     public Bestelling(){
@@ -21,6 +21,8 @@ class Bestelling {
     }
 
     public void addProduct(double prijs){
+        totaal += prijs;
+        hoeveelheid++;
 
     }
 
