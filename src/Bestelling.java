@@ -49,4 +49,48 @@ class Bestelling {
     public boolean weigerBestelling(int hoeveelheid, String bedrijfNaam, boolean toestemming){
         return ((hoeveelheid < minimaleProduct) && (bedrijfNaam.isEmpty())) || (toestemming == false);
     }
+
+    public double getBezorgKosten(int hoeveelheid, boolean toestemming, int gewichtPakket, boolean bezorgKosten) {
+        if((hoeveelheid > 0 && hoeveelheid <= 4) && (toestemming == true) && (gewichtPakket > 0 && gewichtPakket < 25) && (bezorgKosten == true)){
+            bezorgKostenPrijs = 7.50;
+        }
+        else if((hoeveelheid > 0 && hoeveelheid <= 4) && (toestemming == false) && (gewichtPakket > 0 && gewichtPakket < 25) && (bezorgKosten == false)){
+            bezorgKostenPrijs = 0.0;
+        }
+        else if((hoeveelheid <= 5 && hoeveelheid <= 15) && (toestemming == true) && (gewichtPakket > 0 && gewichtPakket < 25) && (bezorgKosten == true)) {
+            bezorgKostenPrijs = 8.50;
+        }
+        else if((hoeveelheid <= 5 && hoeveelheid <= 15) && (toestemming == false) && (gewichtPakket > 0 && gewichtPakket < 25) && (bezorgKosten == false)) {
+            bezorgKostenPrijs = 0.0;
+        }
+
+        else if((hoeveelheid >= 0 && hoeveelheid <= 4) && (toestemming == true) && (gewichtPakket >= 50) && (bezorgKosten == true)) {
+            bezorgKostenPrijs = 10.75;
+        }
+        else if((hoeveelheid >= 0 && hoeveelheid <= 4) && (toestemming == false) && (gewichtPakket >= 50) && (bezorgKosten == false)) {
+            bezorgKostenPrijs = 0.0;
+        }
+
+        else if((hoeveelheid <= 5 || hoeveelheid < 15) && (toestemming == true) && (gewichtPakket >= 50) && (bezorgKosten == true)){
+            bezorgKostenPrijs = 12.75;
+        }
+        else if((hoeveelheid <= 5 || hoeveelheid < 15) && (toestemming == false) && (gewichtPakket >= 50) && (bezorgKosten == false)){
+            bezorgKostenPrijs = 0.0;
+        }
+
+        else if((hoeveelheid >= 15) && (toestemming == true) && (gewichtPakket > 0 && gewichtPakket < 25) && (bezorgKosten == true)){
+            bezorgKostenPrijs = 5.50;
+        }
+        else if((hoeveelheid >= 15) && (toestemming == false) && (gewichtPakket > 0 && gewichtPakket < 25) && (bezorgKosten == false)){
+            bezorgKostenPrijs = 0.0;
+        }
+
+        else if((hoeveelheid >= 15) && (toestemming == true) && (gewichtPakket >= 50) && (bezorgKosten == true)){
+            bezorgKostenPrijs = 9.75;
+        }
+        else if((hoeveelheid >= 15) && (toestemming == false) && (gewichtPakket >= 50) && (bezorgKosten == false)){
+            bezorgKostenPrijs = 0.0;
+        }
+        return bezorgKostenPrijs;
+    }
 }
