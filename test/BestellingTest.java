@@ -58,4 +58,18 @@ public class BestellingTest {
         bestel.addProduct(4.50);
         assertEquals(76.50, bestel.getPrijs(), 0.0001);
     }
+
+    @Test
+    public void getBezorgKosten(){
+        assertEquals(7.50, bestel.getBezorgKosten(1, true, 5, true), 0.001);
+        assertEquals(0.0, bestel.getBezorgKosten(1, false, 55, false), 0.001);
+        assertEquals(10.75, bestel.getBezorgKosten(1, true, 55, true), 0.001);
+        assertEquals(8.50, bestel.getBezorgKosten(5, true, 15, true), 0.001);
+        assertEquals(0.0, bestel.getBezorgKosten(5, false, 15, false), 0.001);
+        assertEquals(12.75, bestel.getBezorgKosten(5, true, 75, true), 0.001);
+        assertEquals(9.75, bestel.getBezorgKosten(17, true, 80, true), 0.001);
+        assertEquals(0.0, bestel.getBezorgKosten(17, false, 80, false), 0.001);
+        assertEquals(5.50, bestel.getBezorgKosten(17, true, 23, true), 0.001);
+
+    }
 }
