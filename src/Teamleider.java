@@ -1,14 +1,6 @@
 class Teamleider {
 
-    public Teamleider(){
+  public void getBestellingsOverzicht(){
 
-    }
-
-    public String getNaam(){
-        return " ";
-    }
-
-    public Integer getMedewerkerNr(){
-        return 0;
-    }
+  }
 }

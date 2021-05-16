@@ -4,13 +4,13 @@ import static org.junit.Assert.*;
 
 public class BestellingTest {
 
-    Bestelling bestel = new Bestelling();
+    Bestelling bestel = new Bestelling("23-04-2021", "Zeep", 10.00, 3, new Medewerker("Rayshri",22626,"Intereuronderhouder"));
 
     @Test
     public void initTest(){
         bestel.addProduct(0.0);
-        assertEquals(0.0, bestel.TotaalPrijs(), 0.0001);
-        assertEquals(1, bestel.getHoeveelheid());
+        assertEquals(0.0,new Bestelling("23-04-2021", "Zeep", 0.0, 1, new Medewerker("Rayshri",22626,"Intereuronderhouder")).TotaalPrijs(), 0.0001);
+        assertEquals(1, new Bestelling("23-04-2021", "Zeep", 0.0, 1, new Medewerker("Rayshri",22626,"Intereuronderhouder")).getHoeveelheid());
     }
 
     @Test

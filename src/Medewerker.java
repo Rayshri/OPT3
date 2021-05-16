@@ -1,19 +1,26 @@
 class Medewerker {
+    private String medewerkerNaam;
+    private Integer medewerkersNr;
     private String dienst;
 
-    public Medewerker(){
+    public Medewerker(String medewerkerNaam, Integer medewerkersNr, String dienst){
+        this.medewerkerNaam = medewerkerNaam;
+        this.medewerkersNr = medewerkersNr;
+        this.dienst = dienst;
 
     }
 
-    public String getNaam(){
-        return " ";
+    public String getMedewerkerNaam(){
+        return medewerkerNaam;
     }
 
-    public Integer getMedewerkerNr(){
-        return 0;
+    public Integer getMedewerkersNr(){
+        return medewerkersNr;
     }
 
     public String getDienst(){
-        return " ";
+        return dienst;
     }
+
+
 }
