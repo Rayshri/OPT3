@@ -7,7 +7,6 @@ class Medewerker {
         this.medewerkerNaam = medewerkerNaam;
         this.medewerkersNr = medewerkersNr;
         this.dienst = dienst;
-
     }
 
     public String getMedewerkerNaam(){

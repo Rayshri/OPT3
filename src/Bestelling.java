@@ -26,15 +26,15 @@ class Bestelling {
     }
 
     public double getPrijs(){
-        if (getHoeveelheid() < 3 && getHoeveelheid() > 0) {
-            prijs = getHoeveelheid() * 10.25;
-        }
-        else if (getHoeveelheid() >= 3 && getHoeveelheid() < 15) {
-            prijs = getHoeveelheid() * 5.50;
-        }
-        else if (getHoeveelheid() >= 15) {
-            prijs = getHoeveelheid() * 4.50;
-        }
+//        if (getHoeveelheid() < 3 && getHoeveelheid() > 0) {
+//            prijs = getHoeveelheid() * 10.25;
+//        }
+//        else if (getHoeveelheid() >= 3 && getHoeveelheid() < 15) {
+//            prijs = getHoeveelheid() * 5.50;
+//        }
+//        else if (getHoeveelheid() >= 15) {
+//            prijs = getHoeveelheid() * 4.50;
+//        }
         return prijs;
     }
 
@@ -49,6 +49,10 @@ class Bestelling {
 
     public String getDatum(){
         return datum;
+    }
+
+    public String getMedewerker(){
+        return medewerker;
     }
 
     public String getBedrijfNaam(){

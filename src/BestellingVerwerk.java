@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class BestellingVerwerk {
 
-    public ArrayList<Bestelling> bestellings = new ArrayList();
+    public static ArrayList<Bestelling> bestellings = new ArrayList();
     Scanner scanner = new Scanner(System.in);
     Medewerker medewerker = new Medewerker("Rayshri", 12345, "Intereur");
 
@@ -20,7 +20,8 @@ public class BestellingVerwerk {
         System.out.println("Uw bestelling is geplaatst.");
     }
 
-
-
+    public ArrayList<Bestelling> getBestellings(){
+        return bestellings;
+    }
 }
 
