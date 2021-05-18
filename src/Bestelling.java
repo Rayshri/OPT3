@@ -1,18 +1,24 @@
 class Bestelling {
     private String naam;
     private double prijs;
+    private String datum;
     private Integer hoeveelheid = 0;
     private double totaal = 0.0;
-    private Integer minimaleProduct;
+    private Integer minimaleProduct = 3;
     private String bedrijfNaam = "";
     private boolean toestemming;
     private Integer gewichtPakket;
     private boolean bezorgKosten;
     private double bezorgKostenPrijs = 0.0;
+    private String medewerker;
 
-    public Bestelling(){
-        this.minimaleProduct = 3;
 
+    public Bestelling(String datum, String naam, double prijs, Integer hoeveelheid, String medewerker){
+        this.datum = datum;
+        this.naam = naam;
+        this.prijs = prijs;
+        this.hoeveelheid = hoeveelheid;
+        this.medewerker = medewerker;
     }
 
     public String getNaam(){
@@ -20,15 +26,15 @@ class Bestelling {
     }
 
     public double getPrijs(){
-        if (getHoeveelheid() < 3 && getHoeveelheid() > 0) {
-            prijs = getHoeveelheid() * 10.25;
-        }
-        else if (getHoeveelheid() >= 3 && getHoeveelheid() < 15) {
-            prijs = getHoeveelheid() * 5.50;
-        }
-        else if (getHoeveelheid() >= 15) {
-            prijs = getHoeveelheid() * 4.50;
-        }
+//        if (getHoeveelheid() < 3 && getHoeveelheid() > 0) {
+//            prijs = getHoeveelheid() * 10.25;
+//        }
+//        else if (getHoeveelheid() >= 3 && getHoeveelheid() < 15) {
+//            prijs = getHoeveelheid() * 5.50;
+//        }
+//        else if (getHoeveelheid() >= 15) {
+//            prijs = getHoeveelheid() * 4.50;
+//        }
         return prijs;
     }
 
@@ -39,7 +45,22 @@ class Bestelling {
     public void addProduct(double prijs){
         totaal += prijs;
         hoeveelheid++;
+    }
 
+    public String getDatum(){
+        return datum;
+    }
+
+    public String getMedewerker(){
+        return medewerker;
+    }
+
+    public String getBedrijfNaam(){
+        return bedrijfNaam;
+    }
+
+    public Integer getGewichtPakket(){
+        return gewichtPakket;
     }
 
     public double TotaalPrijs(){
@@ -93,4 +114,6 @@ class Bestelling {
         }
         return bezorgKostenPrijs;
     }
+
+
 }
