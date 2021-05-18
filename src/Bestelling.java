@@ -10,16 +10,15 @@ class Bestelling {
     private Integer gewichtPakket;
     private boolean bezorgKosten;
     private double bezorgKostenPrijs = 0.0;
-    private Medewerker medewerker;
+    private String medewerker;
 
 
-    public Bestelling(String datum, String naam, double prijs, Integer hoeveelheid, Medewerker medewerkerNaam){
+    public Bestelling(String datum, String naam, double prijs, Integer hoeveelheid, String medewerker){
         this.datum = datum;
         this.naam = naam;
         this.prijs = prijs;
         this.hoeveelheid = hoeveelheid;
-        this.medewerker = medewerkerNaam;
-        // new Medewerker(medewerkerNaam, 1234, "Interieursonderhouder");
+        this.medewerker = medewerker;
     }
 
     public String getNaam(){

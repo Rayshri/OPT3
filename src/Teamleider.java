@@ -1,6 +1,12 @@
+import java.util.ArrayList;
+
 class Teamleider {
 
-  public void getBestellingsOverzicht(){
+  BestellingVerwerk BestelV = new BestellingVerwerk();
 
+  public void getBestellingsOverzicht(){
+    for(int i = 0; i < BestelV.bestellings.size(); i++){
+      BestelV.bestellings.get(i).getDatum();
+    }
   }
 }
