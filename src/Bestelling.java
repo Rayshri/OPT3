@@ -68,7 +68,7 @@ class Bestelling {
     }
 
     public boolean weigerBestelling(int hoeveelheid, String bedrijfNaam, boolean toestemming){
-        return ((hoeveelheid < minimaleProduct) && (bedrijfNaam.isEmpty())) || (toestemming == false);
+        return ((bedrijfNaam.isEmpty() && toestemming) || ( hoeveelheid < minimaleProduct));
     }
 
     public double getBezorgKosten(int hoeveelheid, boolean toestemming, int gewichtPakket, boolean bezorgKosten) {

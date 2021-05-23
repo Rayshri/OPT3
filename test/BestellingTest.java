@@ -4,6 +4,32 @@ import static org.junit.Assert.*;
 
 public class BestellingTest {
 
+
+    Bestelling bestel = new Bestelling();
+
+    @Test
+    public void initTest(){
+        bestel.addProduct(0.0);
+        assertEquals(0.0, bestel.TotaalPrijs(), 0.0001);
+        assertEquals(1, bestel.getHoeveelheid());
+    }
+
+    @Test
+    public void eersteProductToegevoegd(){
+        bestel.addProduct(10.00);
+        assertEquals(10.00, bestel.TotaalPrijs(), 0.0001);
+        assertEquals(1, bestel.getHoeveelheid());
+    }
+
+    @Test
+    public void weigerBestelling(){
+        assertFalse(bestel.weigerBestelling(3," ", false));
+        assertTrue(bestel.weigerBestelling(2, " ", true));
+        assertFalse(bestel.weigerBestelling(4, " ", true));
+        assertTrue(bestel.weigerBestelling(1, "Apple", false));
+        assertFalse(bestel.weigerBestelling(5, "Apple", true));
+    }
+
 //    Bestelling bestel = new Bestelling();
 //
 //    @Test
@@ -72,4 +98,5 @@ public class BestellingTest {
 //        assertEquals(5.50, bestel.getBezorgKosten(17, true, 23, true), 0.001);
 //
 //    }
+
 }
