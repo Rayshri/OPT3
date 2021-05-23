@@ -30,6 +30,35 @@ public class BestellingTest {
         assertFalse(bestel.weigerBestelling(5, "Apple", true));
     }
 
+    @Test
+    public void getPrijs(){
+        bestel.addProduct(0.00);
+        assertEquals(0.00, bestel.getPrijs(), 0.0001);
+        bestel.addProduct(10.25);
+        assertEquals(10.25, bestel.getPrijs(), 0.0001);
+        bestel.addProduct(10.25);
+        assertEquals(20.50, bestel.getPrijs(), 0.0001);
+        bestel.addProduct(5.50);
+        assertEquals(16.50, bestel.getPrijs(), 0.0001);
+        bestel.addProduct(5.50);
+        assertEquals(22.00, bestel.getPrijs(), 0.0001);
+        bestel.addProduct(5.50);
+        bestel.addProduct(5.50);
+        bestel.addProduct(5.50);
+        bestel.addProduct(5.50);
+        bestel.addProduct(5.50);
+        bestel.addProduct(5.50);
+        bestel.addProduct(5.50);
+        bestel.addProduct(5.50);
+        bestel.addProduct(5.50);
+        bestel.addProduct(5.50);
+        assertEquals(77.00, bestel.getPrijs(), 0.0001);
+        bestel.addProduct(5.50);
+        assertEquals(82.50, bestel.getPrijs(), 0.0001);
+        bestel.addProduct(4.50);
+        assertEquals(72.00, bestel.getPrijs(), 0.0001);
+    }
+
 //    Bestelling bestel = new Bestelling();
 //
 //    @Test
@@ -98,5 +127,4 @@ public class BestellingTest {
 //        assertEquals(5.50, bestel.getBezorgKosten(17, true, 23, true), 0.001);
 //
 //    }
-
 }

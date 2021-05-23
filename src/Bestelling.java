@@ -26,6 +26,19 @@ class Bestelling {
     }
 
     public double getPrijs(){
+        if(getHoeveelheid() < 3 && getHoeveelheid() == 0){
+            prijs = 0.00;
+        }
+        else if (getHoeveelheid() < 3 && getHoeveelheid() > 0) {
+            prijs = getHoeveelheid() * 10.25;
+        }
+        else if (getHoeveelheid() >= 3 && getHoeveelheid() <= 15) {
+            prijs = getHoeveelheid() * 5.50;
+        }
+        else if (getHoeveelheid() >= 15) {
+            prijs = getHoeveelheid() * 4.50;
+        }
+
 //        if (getHoeveelheid() < 3 && getHoeveelheid() > 0) {
 //            prijs = getHoeveelheid() * 10.25;
 //        }
@@ -35,6 +48,7 @@ class Bestelling {
 //        else if (getHoeveelheid() >= 15) {
 //            prijs = getHoeveelheid() * 4.50;
 //        }
+
         return prijs;
     }
 
@@ -42,8 +56,16 @@ class Bestelling {
         return hoeveelheid;
     }
 
-    public void addProduct(double prijs){
+    public void addProduct(double prijs) {
         totaal += prijs;
+
+
+        if (prijs == 0.00) {
+            hoeveelheid += 0;
+        } else {
+            hoeveelheid++;
+        }
+
         hoeveelheid++;
     }
 
@@ -61,6 +83,7 @@ class Bestelling {
 
     public Integer getGewichtPakket(){
         return gewichtPakket;
+
     }
 
     public double TotaalPrijs(){
