@@ -20,10 +20,13 @@ class Bestelling {
     }
 
     public double getPrijs(){
-        if (getHoeveelheid() < 3 && getHoeveelheid() > 0) {
+        if(getHoeveelheid() < 3 && getHoeveelheid() == 0){
+            prijs = 0.00;
+        }
+        else if (getHoeveelheid() < 3 && getHoeveelheid() > 0) {
             prijs = getHoeveelheid() * 10.25;
         }
-        else if (getHoeveelheid() >= 3 && getHoeveelheid() < 15) {
+        else if (getHoeveelheid() >= 3 && getHoeveelheid() <= 15) {
             prijs = getHoeveelheid() * 5.50;
         }
         else if (getHoeveelheid() >= 15) {
@@ -36,10 +39,14 @@ class Bestelling {
         return hoeveelheid;
     }
 
-    public void addProduct(double prijs){
+    public void addProduct(double prijs) {
         totaal += prijs;
-        hoeveelheid++;
 
+        if (prijs == 0.00) {
+            hoeveelheid += 0;
+        } else {
+            hoeveelheid++;
+        }
     }
 
     public double TotaalPrijs(){
@@ -47,6 +54,6 @@ class Bestelling {
     }
 
     public boolean weigerBestelling(int hoeveelheid, String bedrijfNaam, boolean toestemming){
-        return ((hoeveelheid < minimaleProduct) && (bedrijfNaam.isEmpty())) || (toestemming == false);
+        return ((bedrijfNaam.isEmpty() && toestemming) || ( hoeveelheid < minimaleProduct));
     }
 }
