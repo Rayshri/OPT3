@@ -12,7 +12,6 @@ class Bestelling {
 
     public Bestelling(){
         this.minimaleProduct = 3;
-
     }
 
     public String getNaam(){
@@ -20,10 +19,13 @@ class Bestelling {
     }
 
     public double getPrijs(){
-        if (getHoeveelheid() < 3 && getHoeveelheid() > 0) {
+        if(getHoeveelheid() < 3 && getHoeveelheid() == 0){
+            prijs = 0.00;
+        }
+        else if (getHoeveelheid() < 3 && getHoeveelheid() > 0) {
             prijs = getHoeveelheid() * 10.25;
         }
-        else if (getHoeveelheid() >= 3 && getHoeveelheid() < 15) {
+        else if (getHoeveelheid() >= 3 && getHoeveelheid() <= 15) {
             prijs = getHoeveelheid() * 5.50;
         }
         else if (getHoeveelheid() >= 15) {
@@ -38,8 +40,12 @@ class Bestelling {
 
     public void addProduct(double prijs){
         totaal += prijs;
-        hoeveelheid++;
 
+        if(prijs == 0.00){
+            hoeveelheid += 0;
+        } else {
+            hoeveelheid++;
+        }
     }
 
     public double TotaalPrijs(){
@@ -47,50 +53,26 @@ class Bestelling {
     }
 
     public boolean weigerBestelling(int hoeveelheid, String bedrijfNaam, boolean toestemming){
-        return ((hoeveelheid < minimaleProduct) && (bedrijfNaam.isEmpty())) || (toestemming == false);
+        return ((bedrijfNaam.isEmpty() && toestemming) || ( hoeveelheid < minimaleProduct));
     }
 
     public double getBezorgKosten(int hoeveelheid, boolean toestemming, int gewichtPakket, boolean bezorgKosten) {
-        if((hoeveelheid > 0 && hoeveelheid <= 4) && (toestemming == true) && (gewichtPakket > 0 && gewichtPakket < 25) && (bezorgKosten == true)){
-            bezorgKostenPrijs = 7.50;
+        if(toestemming && bezorgKosten) {
+                if(hoeveelheid >= 0 && hoeveelheid <=4) {
+                    bezorgKostenPrijs = 7.50;
+                } else if(hoeveelheid >= 5 && hoeveelheid < 15){
+                    bezorgKostenPrijs = 5.00;
+                } else if(hoeveelheid >= 15){
+                    bezorgKostenPrijs = 3.50;
+                }
+                    if(gewichtPakket > 0 && gewichtPakket < 25){
+                        bezorgKostenPrijs += 1.00;
+                    } else if(gewichtPakket >= 25){
+                        bezorgKostenPrijs += 2.50;
+                    }
+            } else {
+            bezorgKostenPrijs = 0.00;
         }
-        else if((hoeveelheid > 0 && hoeveelheid <= 4) && (toestemming == false) && (gewichtPakket > 0 && gewichtPakket < 25) && (bezorgKosten == false)){
-            bezorgKostenPrijs = 0.0;
-        }
-        else if((hoeveelheid <= 5 && hoeveelheid <= 15) && (toestemming == true) && (gewichtPakket > 0 && gewichtPakket < 25) && (bezorgKosten == true)) {
-            bezorgKostenPrijs = 8.50;
-        }
-        else if((hoeveelheid <= 5 && hoeveelheid <= 15) && (toestemming == false) && (gewichtPakket > 0 && gewichtPakket < 25) && (bezorgKosten == false)) {
-            bezorgKostenPrijs = 0.0;
-        }
-
-        else if((hoeveelheid >= 0 && hoeveelheid <= 4) && (toestemming == true) && (gewichtPakket >= 50) && (bezorgKosten == true)) {
-            bezorgKostenPrijs = 10.75;
-        }
-        else if((hoeveelheid >= 0 && hoeveelheid <= 4) && (toestemming == false) && (gewichtPakket >= 50) && (bezorgKosten == false)) {
-            bezorgKostenPrijs = 0.0;
-        }
-
-        else if((hoeveelheid <= 5 || hoeveelheid < 15) && (toestemming == true) && (gewichtPakket >= 50) && (bezorgKosten == true)){
-            bezorgKostenPrijs = 12.75;
-        }
-        else if((hoeveelheid <= 5 || hoeveelheid < 15) && (toestemming == false) && (gewichtPakket >= 50) && (bezorgKosten == false)){
-            bezorgKostenPrijs = 0.0;
-        }
-
-        else if((hoeveelheid >= 15) && (toestemming == true) && (gewichtPakket > 0 && gewichtPakket < 25) && (bezorgKosten == true)){
-            bezorgKostenPrijs = 5.50;
-        }
-        else if((hoeveelheid >= 15) && (toestemming == false) && (gewichtPakket > 0 && gewichtPakket < 25) && (bezorgKosten == false)){
-            bezorgKostenPrijs = 0.0;
-        }
-
-        else if((hoeveelheid >= 15) && (toestemming == true) && (gewichtPakket >= 50) && (bezorgKosten == true)){
-            bezorgKostenPrijs = 9.75;
-        }
-        else if((hoeveelheid >= 15) && (toestemming == false) && (gewichtPakket >= 50) && (bezorgKosten == false)){
-            bezorgKostenPrijs = 0.0;
-        }
-        return bezorgKostenPrijs;
+     return bezorgKostenPrijs;
     }
 }
