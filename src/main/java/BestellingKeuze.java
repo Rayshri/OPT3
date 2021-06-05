@@ -21,9 +21,9 @@ public class BestellingKeuze {
                 break;
             case 2:
                 teamleider.getBestellingsOverzicht();
+                teamleider.getAantalBestellingen();
                 keuze();
             case 0:
-                //bestelV.getBestelling();
                 System.exit(0);
         }
     }

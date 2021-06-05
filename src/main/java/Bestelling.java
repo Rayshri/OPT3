@@ -11,15 +11,14 @@ class Bestelling {
     private boolean bezorgKosten;
     private double bezorgKostenPrijs = 0.0;
     private String medewerker;
-  
-    public Bestelling(){
-        this.minimaleProduct = 3;
-//     public Bestelling(String datum, String naam, double prijs, Integer hoeveelheid, String medewerker){
-//         this.datum = datum;
-//         this.naam = naam;
-//         this.prijs = prijs;
-//         this.hoeveelheid = hoeveelheid;
-//         this.medewerker = medewerker;
+
+     public Bestelling(String datum, String naam, double prijs, Integer hoeveelheid, String medewerker){
+         //this.minimaleProduct = 3;
+         this.datum = datum;
+         this.naam = naam;
+         this.prijs = prijs;
+         this.hoeveelheid = hoeveelheid;
+         this.medewerker = medewerker;
     }
 
     public String getNaam(){
@@ -80,9 +79,9 @@ class Bestelling {
         return bedrijfNaam;
     }
 
-    public Integer getGewichtPakket(){
+    public Integer getGewichtPakket() {
         return gewichtPakket;
-
+    }
     public double TotaalPrijs(){
         return totaal;
     }
