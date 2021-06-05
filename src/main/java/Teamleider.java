@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-
 class Teamleider {
 
   BestellingVerwerk BestelV = new BestellingVerwerk();
