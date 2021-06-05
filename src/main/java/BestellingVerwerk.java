@@ -16,6 +16,7 @@ public class BestellingVerwerk {
         Double prijs = scanner.nextDouble();
         System.out.println("Voer de hoeveelheid in van uw product: ");
         Integer hoeveelheid = scanner.nextInt();
+        scanner.nextLine();
         bestellings.add(new Bestelling(datum, product, prijs, hoeveelheid, medewerker.getMedewerkerNaam()));
         System.out.println("Uw bestelling is geplaatst.");
     }

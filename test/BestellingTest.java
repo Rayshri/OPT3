@@ -4,14 +4,9 @@ import static org.junit.Assert.*;
 
 public class BestellingTest {
 
-//    Bestelling bestel = new Bestelling();
-//
-//    @Test
-//    public void initTest(){
-//        bestel.addProduct(0.0);
-//        assertEquals(0.0, bestel.TotaalPrijs(), 0.0001);
-//        assertEquals(1, bestel.getHoeveelheid());
-//    }
+    Bestelling bestel = new Bestelling("","",0.00,7,"");
+
+  //
 //
 //    @Test
 //    public void eersteProductToegevoegd(){
