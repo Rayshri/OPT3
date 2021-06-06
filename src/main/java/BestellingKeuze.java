@@ -16,7 +16,7 @@ public class BestellingKeuze {
 
         switch (keuze){
             case 1:
-                bestelV.addBestelling();
+                bestelV.soortBestelling();
                 keuze();
                 break;
             case 2:

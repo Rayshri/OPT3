@@ -1,4 +1,6 @@
-class Teamleider {
+import java.util.Observable;
+
+class Teamleider extends Observable {
 
   BestellingVerwerk BestelV = new BestellingVerwerk();
 
@@ -30,4 +32,11 @@ class Teamleider {
     }
     return aantal;
   }
+
+  public String message(){
+    String message;
+    notifyObservers(message = "");
+    return message;
+  }
+
 }
