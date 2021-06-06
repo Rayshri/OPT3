@@ -2,12 +2,7 @@ import java.util.Scanner;
 
 public abstract class Product {
     private String naam;
-    private String goedkeuring;
-    private Toestemming toestemming;
-    private ZonderToestemming zonderToestemming;
-    //Staat gelijk aan friet en soda zodat je method beter kan aanpakken
-    //vloeibaar
-    //niet vloeibaar
+
     Scanner scanner = new Scanner(System.in);
     Medewerker medewerker = new Medewerker("Rayshri", 12345, "Intereur");
 
