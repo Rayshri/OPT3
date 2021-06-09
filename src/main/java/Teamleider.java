@@ -9,6 +9,7 @@ public abstract class Teamleider{
       System.out.println("Prijs: " + BestelV.getBestellings().get(i).getPrijs());
       System.out.println("Hoeveelheid: " + BestelV.getBestellings().get(i).getHoeveelheid());
       System.out.println("Medewerker: " + BestelV.getBestellings().get(i).getMedewerker());
+      System.out.println("Korting: " + BestelV.getBestellings().get(i).getPercentage());
       System.out.println();
     }
   }
