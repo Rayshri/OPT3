@@ -1,8 +1,9 @@
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Scanner;
 
-public class ZonderToestemming extends Product{
+public class ZonderToestemming extends Product implements Observer {
     Scanner scanner = new Scanner(System.in);
-    Teamleider teamleider = new Teamleider();
     public ZonderToestemming() {
         super( "Voor deze bestelling heeft u geen toestemming nodig. ");
     }
@@ -16,6 +17,11 @@ public class ZonderToestemming extends Product{
 
     @Override
     public String getBericht() {
-        return teamleider.message() + "Er is een bestelling geplaatst door een medewerker, hiervoor is geen goedkeuring nodig";
+        return TeamleiderToestemming.message() + "Er is een bestelling geplaatst door een medewerker, hiervoor is geen goedkeuring nodig";
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        getBericht();
     }
 }
