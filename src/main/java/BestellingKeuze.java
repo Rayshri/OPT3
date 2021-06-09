@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class BestellingKeuze {
 
     BestellingVerwerk bestelV = new BestellingVerwerk();
-    Teamleider teamleider = new Teamleider();
+    Teamleider teamleider = new TeamleiderBestellingen();
 
     public void keuze(){
         System.out.println("1) Wilt u een bestelling plaatsen?");

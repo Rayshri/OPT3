@@ -1,6 +1,7 @@
+import java.util.Observable;
 import java.util.Scanner;
 
-public abstract class Product {
+public abstract class Product extends Observable {
     private String naam;
 
     Scanner scanner = new Scanner(System.in);
@@ -25,5 +26,7 @@ public abstract class Product {
         scanner.nextLine();
         BestellingVerwerk.bestellings.add(new Bestelling(datum, naam, prijs, hoeveelheid, medewerker.getMedewerkerNaam()));
         System.out.println(getBericht());
+        setChanged();
+        notifyObservers();
     }
 }
