@@ -1,9 +1,9 @@
 class Medewerker {
     private String medewerkerNaam;
     private Integer medewerkersNr;
-    private String dienst;
+    private Dienst dienst;
 
-    public Medewerker(String medewerkerNaam, Integer medewerkersNr, String dienst){
+    public Medewerker(String medewerkerNaam, Integer medewerkersNr, Dienst dienst){
         this.medewerkerNaam = medewerkerNaam;
         this.medewerkersNr = medewerkersNr;
         this.dienst = dienst;
@@ -17,8 +17,8 @@ class Medewerker {
         return medewerkersNr;
     }
 
-    public String getDienst(){
-        return dienst;
+    public Integer getKortingsPercentage(){
+        return dienst.getKortingspercentage();
     }
 
 
