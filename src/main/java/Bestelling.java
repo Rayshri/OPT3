@@ -4,13 +4,15 @@ class Bestelling {
     private String datum;
     private Integer hoeveelheid = 0;
     private String medewerker;
+    private Integer korting;
 
-     public Bestelling(String datum, String naam, double prijs, Integer hoeveelheid, String medewerker){
+     public Bestelling(String datum, String naam, double prijs, Integer hoeveelheid, String medewerker, Integer korting){
          this.datum = datum;
          this.naam = naam;
          this.prijs = prijs;
          this.hoeveelheid = hoeveelheid;
          this.medewerker = medewerker;
+         this.korting = korting;
     }
 
     public String getNaam(){
@@ -31,5 +33,9 @@ class Bestelling {
 
     public String getMedewerker(){
         return medewerker;
+    }
+
+    public int getPercentage(){
+         return korting;
     }
 }
