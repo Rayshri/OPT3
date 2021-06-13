@@ -3,16 +3,15 @@ class Bestelling {
     private double prijs;
     private String datum;
     private Integer hoeveelheid = 0;
-    private String medewerker;
-    private Integer korting;
+    private Medewerker medewerker;
+    private Dienst dienst;
 
-     public Bestelling(String datum, String naam, double prijs, Integer hoeveelheid, String medewerker, Integer korting){
+     public Bestelling(String datum, String naam, double prijs, Integer hoeveelheid, Medewerker medewerker){
          this.datum = datum;
          this.naam = naam;
          this.prijs = prijs;
          this.hoeveelheid = hoeveelheid;
          this.medewerker = medewerker;
-         this.korting = korting;
     }
 
     public String getNaam(){
@@ -32,10 +31,10 @@ class Bestelling {
     }
 
     public String getMedewerker(){
-        return medewerker;
+        return medewerker.getMedewerkerNaam();
     }
 
     public int getPercentage(){
-         return korting;
+         return medewerker.getKortingsPercentage();
     }
 }
