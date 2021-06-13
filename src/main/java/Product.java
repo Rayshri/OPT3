@@ -3,9 +3,7 @@ import java.util.Scanner;
 
 public abstract class Product extends Observable {
     private String naam;
-
     Scanner scanner = new Scanner(System.in);
-    Medewerker medewerker = new Medewerker("Rayshri", 12345, new Interieur());
 
     public Product (String naam){
         this.naam = naam;
@@ -24,7 +22,7 @@ public abstract class Product extends Observable {
         System.out.println("Voer de hoeveelheid in van uw product: ");
         Integer hoeveelheid = scanner.nextInt();
         scanner.nextLine();
-        BestellingVerwerk.bestellings.add(new Bestelling(datum, naam, prijs, hoeveelheid, medewerker.getMedewerkerNaam(), medewerker.getKortingsPercentage()));
+        BestellingVerwerk.bestellings.add(new Bestelling(datum, naam, prijs, hoeveelheid, new Medewerker("Rayshri", 1234, new Interieur())));
         System.out.println(getBericht());
         setChanged();
         notifyObservers();
